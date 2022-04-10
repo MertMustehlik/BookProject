@@ -1,5 +1,5 @@
 @extends('admin.temp')
-@section('title') Admin - Yayinevi Ekle @endsection
+@section('title') Yayinevi Ekle @endsection
 @section('css')
 @endsection
 @section('master')

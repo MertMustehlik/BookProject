@@ -8,7 +8,7 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{asset('admin/assets/img/apple-icon.png')}}">
     <link rel="icon" href="{{asset('admin/assets/img/favicon.png')}}">
-    <title>@yield('title')</title>
+    <title>Admin - @yield('title')</title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />

@@ -5,8 +5,8 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Creative Tim
+        <a href="#" class="simple-text logo-normal">
+            Tryhard - Books
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -15,6 +15,12 @@
                 <a class="nav-link" href="{{route('adminpanel-index')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Anasayfa</p>
+                </a>
+            </li>
+            <li class="nav-item {{Route::is('adminpanel-book-index')? 'active' : ''}}">
+                <a class="nav-link" href="{{route('adminpanel-book-index')}}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Kitaplar</p>
                 </a>
             </li>
             <li class="nav-item {{Route::is('adminpanel-author-index')? 'active' : ''}}">

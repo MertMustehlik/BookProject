@@ -1,5 +1,5 @@
 @extends('admin.temp')
-@section('title') Admin - Yayinevi Düzenle @endsection
+@section('title') Yayinevi Düzenle @endsection
 @section('css')
 @endsection
 @section('master')
