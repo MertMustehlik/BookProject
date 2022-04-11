@@ -13,6 +13,11 @@ use App\Http\Controllers\Admin\Book\BookController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Slider\SliderController;
 
+/* auth */
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+/* auth end */
+
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/kitap/detay/{seflink}', [FrontBookController::class, 'index'])->name('book-detail');
 
@@ -64,3 +69,9 @@ Route::group(['prefix' => 'adminpanel', 'as' => 'adminpanel-'], function(){
         Route::get('/sil/{id}', [SliderController::class, 'delete'])->name('delete');
     });
 });
+
+
+/* auth */
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+/* auth end */
