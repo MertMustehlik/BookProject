@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Book;
 use App\Http\Controllers\Controller;
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -16,14 +17,17 @@ class BookController extends Controller
         $datas = Book::get();
         $authors = Author::get();
         $publishers = Publisher::get();
-        return view('admin.include.book.index', compact(['datas', 'authors', 'publishers']));
+        $categoryies = Category::get();
+
+        return view('admin.include.book.index', compact(['datas', 'authors', 'publishers', 'categoryies']));
     }
 
     public function add(){
         $authors = Author::get();
         $publishers = Publisher::get();
+        $categories = Category::get();
 
-        return view('admin.include.book.add', compact(['authors', 'publishers']));
+        return view('admin.include.book.add', compact(['authors', 'publishers', 'categories']));
     }
     public function addPost(Request $request){
         $validated = $request->validate([
@@ -31,6 +35,7 @@ class BookController extends Controller
             "image" => "nullable | image",
             "price" => "nullable",
             "description" => "nullable",
+            "categoryId" => "nullable",
         ]);
 
         $name = $request->name;
@@ -48,7 +53,8 @@ class BookController extends Controller
                 "publisherId" => $request->publisherId,
                 "image" => $imageName,
                 "price" => $request->price,
-                "description" => $request->description
+                "description" => $request->description,
+                "categoryId" => $request->categoryId
             ]);
         }
         else{
@@ -58,7 +64,8 @@ class BookController extends Controller
                 "authorId" => $request->authorId,
                 "publisherId" => $request->publisherId,
                 "price" => $request->price,
-                "description" => $request->description
+                "description" => $request->description,
+                "categoryId" => $request->categoryId
             ]);
         }
         
@@ -74,8 +81,10 @@ class BookController extends Controller
         $data = Book::find($id);
         $authors = Author::get();
         $publishers = Publisher::get();
+        $categoryies = Category::get();
+
         if($data){
-        return view('admin.include.book.update', compact(['data', 'authors', 'publishers']));
+        return view('admin.include.book.update', compact(['data', 'authors', 'publishers', 'categoryies']));
         }
         else{
             return Redirect('/');
@@ -90,6 +99,7 @@ class BookController extends Controller
                 "image" => "nullable | image",
                 "price" => "nullable",
                 "description" => "nullable",
+                "categoryId" => "nullable",
             ]);
     
             $name = $request->name;
@@ -111,7 +121,8 @@ class BookController extends Controller
                     "publisherId" => $request->publisherId,
                     "image" => $imageName,
                     "price" => $request->price,
-                    "description" => $request->description
+                    "description" => $request->description,
+                    "categoryId" => $request->categoryId
                 ]);
             }
             else{
@@ -121,7 +132,8 @@ class BookController extends Controller
                     "authorId" => $request->authorId,
                     "publisherId" => $request->publisherId,
                     "price" => $request->price,
-                    "description" => $request->description
+                    "description" => $request->description,
+                    "categoryId" => $request->categoryId
                 ]);
             }
             

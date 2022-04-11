@@ -23,6 +23,7 @@
                                         <th>ID</th>
                                         <th>İsim</th>
                                         <th>Yazar</th>
+                                        <th>Katgori</th>
                                         <th>Yayınevi</th>
                                         <th>Fotoğraf</th>
                                         <th>Fiyat</th>
@@ -44,13 +45,20 @@
                                             @endforeach
                                         </td>
                                         <td>
+                                            @foreach($categoryies as $category)
+                                                @if($category->id == $data->categoryId)
+                                                    {{$category->name}}
+                                                @endif
+                                            @endforeach
+                                        </td>
+                                        <td>
                                             @foreach($publishers as $publisher)
                                                 @if($publisher->id == $data->publisherId)
                                                     {{$publisher->name}}
                                                 @endif
                                             @endforeach
                                         </td>
-                                        <td><img src="{{asset('admin/assets/img/books')}}/{{$data->image}}" alt="{{$data->seflink}}" class="rounded-circle" width="65px" height="65px"></td>
+                                        <td><img src="{{asset('admin/assets/img/books')}}/{{$data->image}}" alt="{{$data->seflink}}" width="80px" height="125px"></td>
                                         <td>{{$data->price}}</td>
                                         <td>{{$data->description}}</td>
                                         <td class="text-center"><a href="{{route('adminpanel-book-update', [$data->id])}}">Düzenle</a></td>

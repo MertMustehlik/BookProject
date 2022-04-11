@@ -41,6 +41,18 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label class="bmd-label-floating">Kategori</label>
+                                        <select name="categoryId" class="form-control">
+                                            @foreach($categoryies as $category)
+                                            <option @if($category['id'] == $data['categoryId']) selected @endif value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label class="bmd-label-floating">Yayınevi</label>
                                         <select name="publisherId" class="form-control">
                                             @foreach($publishers as $publisher)

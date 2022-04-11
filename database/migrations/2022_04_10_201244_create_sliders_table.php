@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('seflink');
-            $table->integer('authorId');
-            $table->integer('publisherId');
-            $table->string('image')->nullable();
-            $table->double('price')->nullable();
-            $table->text('description')->nullable();
-            $table->integer('categoryId')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('sliders');
     }
 };

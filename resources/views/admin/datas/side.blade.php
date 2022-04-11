@@ -17,6 +17,12 @@
                     <p>Anasayfa</p>
                 </a>
             </li>
+            <li class="nav-item {{Route::is('adminpanel-slider-index')? 'active' : ''}}">
+                <a class="nav-link" href="{{route('adminpanel-slider-index')}}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Slider</p>
+                </a>
+            </li>
             <li class="nav-item {{Route::is('adminpanel-book-index')? 'active' : ''}}">
                 <a class="nav-link" href="{{route('adminpanel-book-index')}}">
                     <i class="material-icons">dashboard</i>
