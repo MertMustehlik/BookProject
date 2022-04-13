@@ -30,13 +30,10 @@
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
-						<a href="checkout.html">
-							<div class="total">
-								<span class="simpleCart_total"></span>
-							</div>
-
+						<a href="{{route('basket')}}">
+							<div class="total"><span>₺{{App\Helper\BasketHelper::totalPrice()}}</span></div>
+							<img src="{{asset('front/assets/images/cart-1.png')}}" alt="basket-image">
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -47,7 +44,7 @@
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="">
+		<a href="{{route('index')}}">
 			<h1>Tryhard Books</h1>
 		</a>
 	</div>

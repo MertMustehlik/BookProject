@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\Publisher\PublisherController;
 use App\Http\Controllers\Admin\Book\BookController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Slider\SliderController;
-
+use App\Http\Controllers\Front\Basket\BasketController;
 /* auth */
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -20,6 +20,11 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/kitap/detay/{seflink}', [FrontBookController::class, 'index'])->name('book-detail');
+
+Route::get('/sepet', [BasketController::class, 'index'])->name('basket');
+Route::get('/sepet/ekle/{id}',[BasketController::class, 'add'])->name('basket-add');
+Route::get('/sepet/sil/{id}', [BasketController::class, 'delete'])->name('basket-delete');
+
 
 Route::group(['prefix' => 'adminpanel', 'as' => 'adminpanel-'], function(){
     Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -70,8 +75,7 @@ Route::group(['prefix' => 'adminpanel', 'as' => 'adminpanel-'], function(){
     });
 });
 
-
 /* auth */
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+/* Route::get('/home', [HomeController::class, 'index'])->name('home'); */
 /* auth end */

@@ -9,10 +9,19 @@
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
 					<li><a href="{{route('index')}}">Home</a></li>
-					<li class="active">{{$book->name}}}}</li>
+					<li class="active">{{$book->name}}</li>
 				</ol>
 			</div>
 		</div>
+		@if(session('status'))
+		<div class="container">
+			<div class="breadcrumbs-main">
+				<ol class="breadcrumb" style="padding: 12px;">
+					<li class="active">{{Session('status')}}</li>
+				</ol>
+			</div>
+		</div>
+		@endif
 	</div>
 	<!--end-breadcrumbs-->
 	<!--start-single-->
@@ -66,7 +75,7 @@
                                     @endforeach
                                 </span></li>
 							</ul>
-								<a href="#" class="add-cart item_add">ADD TO CART</a>
+								<a href="{{route('basket-add', [$book->id])}}" class="add-cart item_add">Sepete Ekle</a>
 						</div>
 					</div>
 					<div class="clearfix"> </div>
