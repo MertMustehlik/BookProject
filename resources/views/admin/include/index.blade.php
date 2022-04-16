@@ -5,7 +5,7 @@
 @section('master')
 <div class="content">
     <div class="container-fluid">
-        <div class="alert">Anasayfa</div>
+        <div class="alert text-capitalize">Hoşgeldin {{$user->name}}</div>
     </div>
 </div>
 @endsection

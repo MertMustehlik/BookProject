@@ -34,6 +34,7 @@
 							<div class="total"><span>₺{{App\Helper\BasketHelper::totalPrice()}}</span></div>
 							<img src="{{asset('front/assets/images/cart-1.png')}}" alt="basket-image">
 						</a>
+						<p><a href="{{route('empty-card')}}" class="simpleCart_empty">Sepeti Boşalt</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -57,7 +58,7 @@
 					<div class="top-nav">
 						<ul class="memenu skyblue">
 							@foreach($categories as $category)
-							<li class=""><a href="#">{{$category->name}}</a></li>
+							<li><a href="{{route('category',[$category->seflink])}}">{{$category->name}}</a></li>
 							@endforeach
 
 						</ul>
@@ -66,8 +67,10 @@
 				</div>
 				<div class="col-md-3 header-right">
 					<div class="search-bar">
-						<input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-						<input type="submit" value="">
+						<form action="{{route('search')}}" method="get">
+							<input type="text" name="search" value="Arama" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+							<input type="submit" value="">
+						</form>
 					</div>
 				</div>
 				<div class="clearfix"> </div>

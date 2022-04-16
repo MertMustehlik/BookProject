@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    static function getUser($id){
+        $data = User::find($id);
+        if($data){
+            return $data->name;
+        }   
+        else{
+            return "Kullanıcı silinmiş.";
+        }
+    }
 }

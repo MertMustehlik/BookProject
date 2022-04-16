@@ -5,7 +5,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="#" class="simple-text logo-normal">
+        <a href="{{route('index')}}" class="simple-text logo-normal">
             Tryhard - Books
         </a>
     </div>
@@ -39,6 +39,12 @@
                 <a class="nav-link" href="{{route('adminpanel-publisher-index')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Yayinevleri</p>
+                </a>
+            </li>
+            <li class="nav-item {{Route::is('adminpanel-order-index')? 'active' : ''}}">
+                <a class="nav-link" href="{{route('adminpanel-order-index')}}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Siparişler</p>
                 </a>
             </li>
         </ul>

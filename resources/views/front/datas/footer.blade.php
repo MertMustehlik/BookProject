@@ -8,7 +8,7 @@
 	                    <li><a href="#"><span class="fb"></span>
 	                            <h6>Facebook</h6>
 	                        </a></li>
-	                    <li><a href="#"><span class="twit"></span>
+	                    <li><a href="https://twitter.com/mertmustehlik" target="_blank"><span class="twit"></span>
 	                            <h6>Twitter</h6>
 	                        </a></li>
 	                    <li><a href="#"><span class="google"></span>

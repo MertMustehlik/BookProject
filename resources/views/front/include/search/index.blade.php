@@ -1,45 +1,8 @@
 @extends('front.temp')
 @section('title') Tryhard - Books @endsection
-@section('css')@endsection
+@section('css') @endsection
 
 @section('master')
-<!--banner-starts-->
-<div class="bnr" id="home">
-    <div id="top" class="callbacks_container">
-        <ul class="rslides" id="slider4">
-            @foreach($sliders as $slider)
-                <li><img src="{{asset('admin/assets/img/slider')}}/{{$slider->image}}" alt="slider-image"/></li>
-            @endforeach
-        </ul>
-    </div>
-    <div class="clearfix"> </div>
-</div>
-<!--banner-ends-->
-<!--Slider-Starts-Here-->
-<script src="{{asset('front/assets/js/responsiveslides.min.js')}}"></script>
-<script>
-    // You can also use "$(window).load(function() {"
-    $(function() {
-        // Slideshow 4
-        $("#slider4").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: true,
-            speed: 500,
-            namespace: "callbacks",
-            before: function() {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function() {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
-
-    });
-</script>
-<!--End-slider-script-->
-
-<div style="margin-top:50px;"></div>
 
 <!--product-starts-->
 <div class="product">
@@ -53,9 +16,9 @@
                         <div class="product-bottom">
                             <h3>{{$book->name}}</h3>
                             <p>
-                                @foreach($authors as $author)
-                                    @if($author->id == $book->authorId)
-                                        {{$author->name}}
+                                @foreach($authors as $auth)
+                                    @if($auth->id == $book->authorId)
+                                        {{$auth->name}}
                                     @endif
                                 @endforeach
                             </p>

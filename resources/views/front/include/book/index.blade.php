@@ -8,7 +8,7 @@
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="{{route('index')}}">Home</a></li>
+					<li><a href="{{route('index')}}">Anasayfa</a></li>
 					<li class="active">{{$book->name}}</li>
 				</ol>
 			</div>
@@ -25,13 +25,13 @@
 	</div>
 	<!--end-breadcrumbs-->
 	<!--start-single-->
-	<div class="single contact">
+	<div class="single contact"">
 		<div class="container">
-			<div class="single-main">
-				<div class="col-md-12 single-main-left">
+			<div class="single-main" style="display: flex; justify-content:center;">
+				<div class="col-md-9 single-main-left">
 				<div class="sngl-top">
-					<div class="col-md-4 single-top-left">	
-						<div class="flexslider">
+					<div class="col-md-5 single-top-left">	
+					<div class="flexslider">
 							  <ul class="slides">
 								<li data-thumb="{{asset('admin/assets/img/books')}}/{{$book->image}}">
 									<div class="thumb-image"> <img src="{{asset('admin/assets/img/books')}}/{{$book->image}}" data-imagezoom="true" class="img-responsive" alt=""/> </div>
@@ -53,7 +53,7 @@
 						});
 						</script>
 					</div>	
-					<div class="col-md-8 single-top-right">
+					<div class="col-md-7 single-top-right">
 						<div class="single-para simpleCart_shelfItem">
 						<h2>{{$book->name}}</h2>
 							<h5 class="item_price">₺{{$book->price}}</h5>
@@ -82,45 +82,27 @@
 				</div>
 				<div class="latestproducts">
 					<div class="product-one">
+						@foreach(\App\Models\Book::inRandomOrder()->limit(3)->get() as $value)
 						<div class="col-md-4 product-left p-left"> 
 							<div class="product-main simpleCart_shelfItem">
-								<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-1.png" alt="" /></a>
+								<a href="{{route('book-detail',[$value->seflink])}}" class="mask"><img class="img-responsive zoom-img" src="{{asset('admin/assets/img/books')}}/{{$value->image}}" alt="{{$value->seflink}}" width="100px" height="120px"/></a>
 								<div class="product-bottom">
-									<h3>Smart Watches</h3>
-									<p>Explore Now</p>
-									<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+									<h3>{{$value->name}}</h3>
+									<p>
+										@foreach($authors as $author)
+											@if($author->id == $value->authorId)
+												{{$author->name}}
+											@endif
+										@endforeach
+									</p>
+									<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">₺{{$value->price}}</span></h4>
 								</div>
-								<div class="srch">
+								<!-- <div class="srch">
 									<span>-50%</span>
-								</div>
+								</div> -->
 							</div>
 						</div>
-						<div class="col-md-4 product-left p-left"> 
-							<div class="product-main simpleCart_shelfItem">
-								<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-2.png" alt="" /></a>
-								<div class="product-bottom">
-									<h3>Smart Watches</h3>
-									<p>Explore Now</p>
-									<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-								</div>
-								<div class="srch">
-									<span>-50%</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 product-left p-left"> 
-							<div class="product-main simpleCart_shelfItem">
-								<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-3.png" alt="" /></a>
-								<div class="product-bottom">
-									<h3>Smart Watches</h3>
-									<p>Explore Now</p>
-									<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-								</div>
-								<div class="srch">
-									<span>-50%</span>
-								</div>
-							</div>
-						</div>
+						@endforeach
 						<div class="clearfix"></div>
 					</div>
 				</div>

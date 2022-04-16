@@ -44,11 +44,13 @@
                             <div class="clearfix"> </div>
                         </ul>
                         @endforeach
+                        <a href="{{route('basket-complate')}}" class="add-cart item_add">Alışverişi Tamamla</a>
                     @else
                     <div class="alert alert-info">Sepetiniz bomboş</div>
                     @endif
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
